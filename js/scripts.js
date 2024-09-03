@@ -3,6 +3,8 @@ const { createApp } = Vue;
 const app = createApp({
     data() {
         return {
+            userName: 'Sofia', // Nome dell'utente
+            userAvatar:'./img/avatar_io.jpg',
             contacts: [
                 {
                     name: 'Michele',

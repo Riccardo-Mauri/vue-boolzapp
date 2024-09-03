@@ -7,6 +7,8 @@
     <title>Boolzapp</title>
     <!--LINK CSS-->
     <link rel="stylesheet" href="./css/style.css">
+    <!--LINK FONT AWESOME-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
 <body>
@@ -19,8 +21,9 @@
                         <!--qua inserisco attiva/disattiva notifiche nuovi messagi/attiva notifiche desktop e barra di ricerca contatto/inizia nuova chat-->
                         <div class="top-left-bar-header">
                             <!--qua metto il profilo personale con avatar/nome-->
-                            <div>
-
+                            <div class="my-profile">
+                                <div class="my-avatar-container"><img :src="userAvatar" alt="my-avatar"></div>
+                                <div><p>{{userName}}</p></div>
                             </div>
                             <div>
                                 <!--SE mi avanza tempo metto le tre icone a destra con ricarica/messagi/impostazioni-->
@@ -29,16 +32,31 @@
                         <div class="bottom-left-bar-header">
                             <!--qua inserisco ricevi/disattiva notifiche e barra di ricerca nuovo contatto/avvia chat-->
                             <div class="left-note-container">
+                                <div class="note-icon-container"><i class="fa-solid fa-bell-slash fa-xl note-icon"></i></div>
+                                <div>
+                                    <p>Ricevi notifiche di nuovi messaggi</p>
+                                    <p><a href="#"></a>Attiva notifiche desktop</p>
 
+                                </div>
                             </div>
                             <div class="left-search-contact-container">
 
                             </div>
                         </div>
                     </header>
-                    <div class="contacts-left-container">
 
+                    <div class="contacts-left-container">
+                        <div v-for="contact in contacts" class="contact-info">
+                            <div class="contact-avatar">
+                                <img :src="contact.avatar" alt="contact.name">
+                            </div>
+                            <div class="contact-description">
+                                <p>{{contact.name}}</p>
+                                <p>Ultimo messaggio inviato</p>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
                 <div class="right-messages-container">
                     <!--qua ci vanno il profilo attivo in questo momento che stiamo visualizzando del contatto, i messaggi ricevuti e inviati, una barra di testo per scrivere messaggi -->

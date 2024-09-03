@@ -26,7 +26,11 @@ GENERAL
     background-color: red;
     display: flex;
 }
-
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 /*
 CONTAINER PRINCIPALI
 */
@@ -64,6 +68,9 @@ ALL'INTERNO DEL CONTAINER DI SINISTRA
 .left-note-container{
     height: 80px;
     background-color: blue;
+    display: flex;
+    align-items: center;
+    
 }
 
 .left-search-contact-container{
@@ -77,13 +84,59 @@ ALL'INTERNO DEL CONTAINER DI SINISTRA
     background-color: brown;
 }
 
+.my-profile{
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.my-avatar-container{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: black;
+    margin-right: 10px; 
+}
+.note-icon-container{
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.note-icon{
+    color: blue;
+}
+.contact-info{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+}
 
+.contact-avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.contact-description{
+    margin-left: 10px;
+}
 /*
 ALL'INTERNO DEL CONTAINER DI DESTRA
 */
 .right-header-container{
     background-color: lightgray;
     height: 50px;
+    flex-shrink: 0;
 }
 
 .main-content-right{
@@ -95,4 +148,5 @@ ALL'INTERNO DEL CONTAINER DI DESTRA
 footer{
     height: 60px;
     background-color: black;
+    flex-shrink: 0;
 }
