@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,63 @@
     <!--LINK CSS-->
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
     <div id="app">
-        <div>{{message}}</div>
+        <div class="Main-container">
+            <div class="App-container">
+                <div class="left-contact-bar">
+                    <!--qua ci vanno una barra notifiche messaggi, ricerca contatti e i profili delle persone/contatti con avatar-nome-descrizione e orario-->
+                    <header>
+                        <!--qua inserisco attiva/disattiva notifiche nuovi messagi/attiva notifiche desktop e barra di ricerca contatto/inizia nuova chat-->
+                        <div class="top-left-bar-header">
+                            <!--qua metto il profilo personale con avatar/nome-->
+                            <div>
+
+                            </div>
+                            <div>
+                                <!--SE mi avanza tempo metto le tre icone a destra con ricarica/messagi/impostazioni-->
+                            </div>
+                        </div>
+                        <div class="bottom-left-bar-header">
+                            <!--qua inserisco ricevi/disattiva notifiche e barra di ricerca nuovo contatto/avvia chat-->
+                            <div class="left-note-container">
+
+                            </div>
+                            <div class="left-search-contact-container">
+
+                            </div>
+                        </div>
+                    </header>
+                    <div class="contacts-left-container">
+
+                    </div>
+                </div>
+                <div class="right-messages-container">
+                    <!--qua ci vanno il profilo attivo in questo momento che stiamo visualizzando del contatto, i messaggi ricevuti e inviati, una barra di testo per scrivere messaggi -->
+                    <div class="right-header-container">
+                        <!--qua inserisco il contatto a cui sono visualizzato in questo momento e SE mi avanza tempo inserisco le icone a destra di cerca/allega/impostazioni-->
+
+                    </div>
+                    <div class="main-content-right">
+
+                    </div>
+                    <footer>
+                        <!--qua metto una barra di testo dove poter scrivere un messaggio e inviarlo , SE mi avanza tempo inserisco le emote a sinistra e il microfono a destra-->
+                        <div>
+                            <div>
+                                <input type="text">
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
     </div>
     <!--LINK VUE-->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!--LINK MY JS-->
     <script src="./js/scripts.js"></script>
 </body>
+
 </html>

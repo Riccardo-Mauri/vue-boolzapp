@@ -6,6 +6,93 @@ RESET
     padding: 0;
     box-sizing: border-box;
 }
-h1{
-    color: red;
+
+/*
+GENERAL
+*/
+
+.Main-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightslategray;
+}
+
+.App-container{
+    width: 80%;
+    height: 80%;
+    background-color: red;
+    display: flex;
+}
+
+/*
+CONTAINER PRINCIPALI
+*/
+
+.left-contact-bar{
+    width: 30%;
+    height: 100%;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-messages-container{
+    width: 70%;
+    height: 100%;
+    background-color: lightsalmon;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/*
+ALL'INTERNO DEL CONTAINER DI SINISTRA
+*/
+.top-left-bar-header{
+    background-color: lightgray;
+    height: 50px;
+    border-right: 1px solid black;
+}
+
+.bottom-left-bar-header{
+    height: 120px;
+}
+
+.left-note-container{
+    height: 80px;
+    background-color: blue;
+}
+
+.left-search-contact-container{
+    height: 40px;
+    background-color: white;
+}
+
+.contacts-left-container{
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: brown;
+}
+
+
+/*
+ALL'INTERNO DEL CONTAINER DI DESTRA
+*/
+.right-header-container{
+    background-color: lightgray;
+    height: 50px;
+}
+
+.main-content-right{
+    background-color: chartreuse;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+footer{
+    height: 60px;
+    background-color: black;
 }
