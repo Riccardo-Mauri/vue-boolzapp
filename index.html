@@ -43,20 +43,21 @@
                                 </div>
                             </div>
                             <div class="left-search-contact-container">
-
+                                <input class="textbar" type="text" id="search-input" name="search-input" v-model="searchContact"
+                                  placeholder="  cerca un contatto...">
                             </div>
                         </div>
                     </header>
 
                     <div class="contacts-left-container">
-                        <div v-for="(contact, index) in contacts" @click="selectContact(index)" class="contact-info"
+                        <div v-for="(contact, index) in filterContacts" @click="selectContact(index)" class="contact-info"
                             :class="{ active: index === activeContactIndex }">
                             <div class="contact-avatar">
                                 <img :src="contact.avatar" alt="contact.name">
                             </div>
                             <div class="contact-description">
                                 <p class="contact-name-left-container">{{contact.name}}</p>
-                                <p class="message-contact-left-container">Ultimo messaggio inviato</p>
+                                <p class="message-contact-left-container">{{ contact.messages[contact.messages.length - 1].message }}</p>
                             </div>
                         </div>
                     </div>
@@ -98,7 +99,7 @@
 
                         <div class="textbar-container">
                             <input class="textbar" type="text" id="message-input" name="message-input"
-                                v-model="newMessage" @keyup.enter="sendMessage" placeholder="Scrivi un messaggio...">
+                                v-model="newMessage" @keyup.enter="sendMessage" placeholder="  Scrivi un messaggio...">
                         </div>
 
                     </footer>

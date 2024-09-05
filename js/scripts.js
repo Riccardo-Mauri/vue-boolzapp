@@ -7,6 +7,7 @@ const app = createApp({
             userAvatar: './img/avatar_io.jpg', //avatar dell'utente
             activeContactIndex: 0,  // Indice del contatto attivo, inizialmente il primo contatto
             newMessage: '',  // Nuovo messaggio scritto dall'utente
+            searchContact:'', //nuova ricerca per contatto
             contacts: [
                 {
                     name: 'Michele',
@@ -198,7 +199,7 @@ const app = createApp({
             fullDate += now.getSeconds().toString().padStart(2, '0');
             return fullDate;
         },
-    // Metodo per inviare il messaggio
+        // Metodo per inviare il messaggio
         sendMessage() {
             if (this.newMessage.trim() !== '') {
 
@@ -221,7 +222,17 @@ const app = createApp({
                     });
                 }, 1000);
             }
+        },
+        
+    
+    },
+    computed:{
+        filterContacts(){
+            return this.contacts.filter(contact =>
+                contact.name.toLowerCase().includes(this.searchContact.toLowerCase())
+              );
         }
+            
     }
 }).mount('#app');
 
