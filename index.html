@@ -23,7 +23,9 @@
                             <!--qua metto il profilo personale con avatar/nome-->
                             <div class="my-profile">
                                 <div class="my-avatar-container"><img :src="userAvatar" alt="my-avatar"></div>
-                                <div><p>{{userName}}</p></div>
+                                <div>
+                                    <p class="contact-name-left-container">{{userName}}</p>
+                                </div>
                             </div>
                             <div>
                                 <!--SE mi avanza tempo metto le tre icone a destra con ricarica/messagi/impostazioni-->
@@ -32,10 +34,11 @@
                         <div class="bottom-left-bar-header">
                             <!--qua inserisco ricevi/disattiva notifiche e barra di ricerca nuovo contatto/avvia chat-->
                             <div class="left-note-container">
-                                <div class="note-icon-container"><i class="fa-solid fa-bell-slash fa-xl note-icon"></i></div>
+                                <div class="note-icon-container"><i class="fa-solid fa-bell-slash fa-xl note-icon"></i>
+                                </div>
                                 <div>
-                                    <p>Ricevi notifiche di nuovi messaggi</p>
-                                    <p><a href="#"></a>Attiva notifiche desktop</p>
+                                    <p class="text-note">Ricevi notifiche di nuovi messaggi</p>
+                                    <p class="text-note"><a href="#">Attiva notifiche desktop</a></p>
 
                                 </div>
                             </div>
@@ -46,34 +49,58 @@
                     </header>
 
                     <div class="contacts-left-container">
-                        <div v-for="contact in contacts" class="contact-info">
+                        <div v-for="(contact, index) in contacts" @click="selectContact(index)" class="contact-info"
+                            :class="{ active: index === activeContactIndex }">
                             <div class="contact-avatar">
                                 <img :src="contact.avatar" alt="contact.name">
                             </div>
                             <div class="contact-description">
-                                <p>{{contact.name}}</p>
-                                <p>Ultimo messaggio inviato</p>
+                                <p class="contact-name-left-container">{{contact.name}}</p>
+                                <p class="message-contact-left-container">Ultimo messaggio inviato</p>
                             </div>
                         </div>
                     </div>
 
                 </div>
+
+
                 <div class="right-messages-container">
                     <!--qua ci vanno il profilo attivo in questo momento che stiamo visualizzando del contatto, i messaggi ricevuti e inviati, una barra di testo per scrivere messaggi -->
                     <div class="right-header-container">
                         <!--qua inserisco il contatto a cui sono visualizzato in questo momento e SE mi avanza tempo inserisco le icone a destra di cerca/allega/impostazioni-->
-
+                        <div class="header-contact-right">
+                            <!-- Visualizza l'avatar del contatto attivo -->
+                            <div class="active-contact-avatar">
+                                <img :src="contacts[activeContactIndex].avatar" alt="{{ contacts[activeContactIndex].name }}">
+                            </div>
+                            <!-- Visualizza il nome del contatto attivo -->
+                            <div class="active-contact-name">
+                                <p>{{ contacts[activeContactIndex].name }}</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="main-content-right">
+                        <!--qua inserisco i messaggi tra l'utente e i contatti , verdi se sono dei contatti con cui sta scrivendo e bianchi per quelli dell'interlocutore-->
+                        <!-- Assegnazione della classe in base allo stato del messaggio -->
+                        <div v-for="message in contacts[activeContactIndex].messages"
+                            :class="message.status === 'received' ? 'my-box-message' : 'contact-box-message'">
 
+                            <div :class="message.status === 'received' ? 'my-text-box-message' : 'text-box-message'">
+                                {{ message.message }} 
+                                <div class="message-date">
+                                    {{message.date}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <footer>
                         <!--qua metto una barra di testo dove poter scrivere un messaggio e inviarlo , SE mi avanza tempo inserisco le emote a sinistra e il microfono a destra-->
-                        <div>
-                            <div>
-                                <input type="text">
-                            </div>
+
+                        <div class="textbar-container">
+                            <input class="textbar" type="text" id="message-input" name="message-input"
+                                v-model="newMessage" @keyup.enter="sendMessage" placeholder="Scrivi un messaggio...">
                         </div>
+
                     </footer>
                 </div>
             </div>

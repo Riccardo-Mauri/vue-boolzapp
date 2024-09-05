@@ -4,7 +4,9 @@ const app = createApp({
     data() {
         return {
             userName: 'Sofia', // Nome dell'utente
-            userAvatar:'./img/avatar_io.jpg',
+            userAvatar: './img/avatar_io.jpg', //avatar dell'utente
+            activeContactIndex: 0,  // Indice del contatto attivo, inizialmente il primo contatto
+            newMessage: '',  // Nuovo messaggio scritto dall'utente
             contacts: [
                 {
                     name: 'Michele',
@@ -168,7 +170,58 @@ const app = createApp({
                     ],
                 }
             ]
-            
         }
     },
+
+
+    methods: {
+        // Metodo per selezionare il contatto attivo
+        selectContact(index) {
+            this.activeContactIndex = index;
+            console.log(this.contacts[index])
+        },
+
+        //creo una funzione per calcolarmi l'ora minuti secondi mese e anno per i messaggi che invierò
+        getFullDate() {
+            const now = new Date();
+            let fullDate = '';
+            fullDate += now.getDate().toString().padStart(2, '0');
+            fullDate += '/';
+            fullDate += (now.getMonth() + 1).toString().padStart(2, '0');
+            fullDate += '/';
+            fullDate += now.getFullYear();
+            fullDate += ' ';
+            fullDate += now.getHours().toString().padStart(2, '0');
+            fullDate += ':';
+            fullDate += now.getMinutes().toString().padStart(2, '0');
+            fullDate += ':';
+            fullDate += now.getSeconds().toString().padStart(2, '0');
+            return fullDate;
+        },
+    // Metodo per inviare il messaggio
+        sendMessage() {
+            if (this.newMessage.trim() !== '') {
+
+                // Aggiunge il messaggio inviato dall'utente
+                this.contacts[this.activeContactIndex].messages.push({
+                    date: this.getFullDate(),
+                    message: this.newMessage,
+                    status: 'sent'
+                });
+
+                // ripulisce l'input
+                this.newMessage = '';
+
+                // creo una funzione che mi dia una risposta automatica dopo 1 secondo
+                setTimeout(() => {
+                    this.contacts[this.activeContactIndex].messages.push({
+                        date: this.getFullDate(),
+                        message: 'ok',
+                        status: 'received'
+                    });
+                }, 1000);
+            }
+        }
+    }
 }).mount('#app');
+

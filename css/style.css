@@ -23,7 +23,6 @@ GENERAL
 .App-container{
     width: 80%;
     height: 80%;
-    background-color: red;
     display: flex;
 }
 img{
@@ -38,7 +37,6 @@ CONTAINER PRINCIPALI
 .left-contact-bar{
     width: 30%;
     height: 100%;
-    background-color: green;
     display: flex;
     flex-direction: column;
 }
@@ -46,7 +44,7 @@ CONTAINER PRINCIPALI
 .right-messages-container{
     width: 70%;
     height: 100%;
-    background-color: lightsalmon;
+    background-image: url(../img/mine.jpg);
     display: flex;
     flex-direction: column;
     
@@ -66,8 +64,9 @@ ALL'INTERNO DEL CONTAINER DI SINISTRA
 }
 
 .left-note-container{
+    padding-left: 5px;
     height: 80px;
-    background-color: blue;
+    background-color: rgb(58, 124, 248);
     display: flex;
     align-items: center;
     
@@ -81,10 +80,10 @@ ALL'INTERNO DEL CONTAINER DI SINISTRA
 .contacts-left-container{
     flex-grow: 1;
     overflow-y: auto;
-    background-color: brown;
+    cursor: pointer;
 }
-
 .my-profile{
+    padding-left: 5px;
     height: 50px;
     display: flex;
     align-items: center;
@@ -109,18 +108,22 @@ ALL'INTERNO DEL CONTAINER DI SINISTRA
     align-items: center;
 }
 .note-icon{
-    color: blue;
+    color: rgb(58, 124, 248);
+}
+.text-note{
+    font-size: 0.8rem;
 }
 .contact-info{
     width: 100%;
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: lightgray;
+    background-color: white;
     border-top: 1px solid grey;
-    border-bottom: 1px solid grey;
 }
-
+.contact-info:hover{
+    background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
+}
 .contact-avatar{
     width: 50px;
     height: 50px;
@@ -130,6 +133,13 @@ ALL'INTERNO DEL CONTAINER DI SINISTRA
 .contact-description{
     margin-left: 10px;
 }
+.contact-name-left-container{
+    font-weight: bold;
+}
+.message-contact-left-container{
+    font-size: 0.9rem;
+    color: lightgrey;
+}
 /*
 ALL'INTERNO DEL CONTAINER DI DESTRA
 */
@@ -137,16 +147,81 @@ ALL'INTERNO DEL CONTAINER DI DESTRA
     background-color: lightgray;
     height: 50px;
     flex-shrink: 0;
+    display: flex;
+    
 }
-
+.header-contact-right{
+    padding-left: 5px;
+    display: flex;
+    align-items: center;
+}
+.active-contact-avatar{
+    width: 45px;
+    height: 45px;
+    border: 1px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.active-contact-name{
+    margin-left: 10px;
+}
 .main-content-right{
-    background-color: chartreuse;
     flex-grow: 1;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    margin-right: 100px;
 }
-
+.contact-box-message{
+    min-height: 35px;
+    align-self: flex-end;
+    margin: 5px;
+}
+.my-box-message{
+    min-height: 35px;
+    align-self: flex-start;
+    margin: 5px;
+}
+.text-box-message{
+    padding-top: 3px;
+    padding-left: 10px;
+    background-color: green;
+    width: 200px;
+    min-height: 35px;
+    border-radius: 5px;
+    
+}
+.my-text-box-message{
+    padding-top: 3px;
+    padding-left: 10px;
+    background-color: white;
+    width: 200px;
+    min-height: 35px;
+    border-radius: 5px;
+}
+.message-date{
+    margin-top: 5px;
+    font-size: 0.8rem;
+    text-align: end;
+    color: rgb(56, 54, 54);
+    
+}
 footer{
+    width: 100%;
     height: 60px;
-    background-color: black;
+    background-color: rgba(255, 255, 255, 0.61);
     flex-shrink: 0;
+}
+.textbar-container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.textbar{
+    width: 80%;
+    height: 60%;
+    border-radius: 10px;
+    border: none;
 }
