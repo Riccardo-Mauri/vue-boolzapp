@@ -226,6 +226,7 @@ const app = createApp({
         
     
     },
+    //aggiunto um modo per far si che nella barra di ricerca laterale a sinistra possa cercare per nome un contatto es: se scrivo "al" mi trova tutti i contatti con "al" nel nome
     computed:{
         filterContacts(){
             return this.contacts.filter(contact =>
