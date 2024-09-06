@@ -27,8 +27,11 @@
                                     <p class="contact-name-left-container">{{userName}}</p>
                                 </div>
                             </div>
-                            <div>
-                                <!--SE mi avanza tempo metto le tre icone a destra con ricarica/messagi/impostazioni-->
+                            <div class="left-profile-button-cont">
+                                <!-- metto le tre icone/bottoni a destra con ricarica/messaggi/impostazioni-->
+                                <button><i class="fa-solid fa-rotate-right"></i></button>
+                                <button><i class="fa-solid fa-message"></i></button>
+                                <button><i class="fa-solid fa-ellipsis-vertical"></i></button>
                             </div>
                         </div>
                         <div class="bottom-left-bar-header">
@@ -43,21 +46,22 @@
                                 </div>
                             </div>
                             <div class="left-search-contact-container">
-                                <input class="textbar" type="text" id="search-input" name="search-input" v-model="searchContact"
-                                  placeholder="  cerca un contatto...">
+                                <input class="search-textbar" type="text" id="search-input" name="search-input"
+                                    v-model="searchContact" placeholder="  cerca un contatto...">
                             </div>
                         </div>
                     </header>
 
                     <div class="contacts-left-container">
-                        <div v-for="(contact, index) in filterContacts" @click="selectContact(index)" class="contact-info"
-                            :class="{ active: index === activeContactIndex }">
+                        <div v-for="(contact, index) in filterContacts" @click="selectContact(index)"
+                            class="contact-info" :class="{ active: index === activeContactIndex }">
                             <div class="contact-avatar">
                                 <img :src="contact.avatar" alt="contact.name">
                             </div>
                             <div class="contact-description">
                                 <p class="contact-name-left-container">{{contact.name}}</p>
-                                <p class="message-contact-left-container">{{ contact.messages[contact.messages.length - 1].message }}</p>
+                                <p class="message-contact-left-container">{{ contact.messages[contact.messages.length -
+                                    1].message }}</p>
                             </div>
                         </div>
                     </div>
@@ -68,16 +72,22 @@
                 <div class="right-messages-container">
                     <!--qua ci vanno il profilo attivo in questo momento che stiamo visualizzando del contatto, i messaggi ricevuti e inviati, una barra di testo per scrivere messaggi -->
                     <div class="right-header-container">
-                        <!--qua inserisco il contatto a cui sono visualizzato in questo momento e SE mi avanza tempo inserisco le icone a destra di cerca/allega/impostazioni-->
+                        <!--qua inserisco il contatto a cui sono visualizzato in questo momento e inserisco le icone a destra di cerca/allega/impostazioni-->
                         <div class="header-contact-right">
                             <!-- Visualizza l'avatar del contatto attivo -->
                             <div class="active-contact-avatar">
-                                <img :src="contacts[activeContactIndex].avatar" alt="{{ contacts[activeContactIndex].name }}">
+                                <img :src="contacts[activeContactIndex].avatar"
+                                    alt="{{ contacts[activeContactIndex].name }}">
                             </div>
                             <!-- Visualizza il nome del contatto attivo -->
                             <div class="active-contact-name">
                                 <p>{{ contacts[activeContactIndex].name }}</p>
                             </div>
+                        </div>
+                        <div class="right-header-buttons">
+                            <button><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
+                            <button><i class="fa-solid fa-paperclip fa-xl"></i></button>
+                            <button><i class="fa-solid fa-ellipsis-vertical fa-xl"></i></button>
                         </div>
                     </div>
                     <div class="main-content-right">
@@ -87,7 +97,7 @@
                             :class="message.status === 'received' ? 'my-box-message' : 'contact-box-message'">
 
                             <div :class="message.status === 'received' ? 'my-text-box-message' : 'text-box-message'">
-                                {{ message.message }} 
+                                {{ message.message }}
                                 <div class="message-date">
                                     {{message.date}}
                                 </div>
@@ -95,13 +105,17 @@
                         </div>
                     </div>
                     <footer>
-                        <!--qua metto una barra di testo dove poter scrivere un messaggio e inviarlo , SE mi avanza tempo inserisco le emote a sinistra e il microfono a destra-->
-
+                        <!--qua metto una barra di testo dove poter scrivere un messaggio e inviarlo , inserisco le emote a sinistra e il microfono a destra-->
+                        <div class="button-cont">
+                            <button><i class="fa-regular fa-face-smile fa-xl"></i></button>
+                        </div>
                         <div class="textbar-container">
                             <input class="textbar" type="text" id="message-input" name="message-input"
                                 v-model="newMessage" @keyup.enter="sendMessage" placeholder="  Scrivi un messaggio...">
                         </div>
-
+                        <div class="button-cont">
+                            <button><i class="fa-solid fa-microphone fa-xl"></i></button>
+                        </div>
                     </footer>
                 </div>
             </div>
